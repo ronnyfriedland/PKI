@@ -65,7 +65,7 @@ public class CertificateValidatorTest {
     }
 
     @Test
-    public void testValidateCertificate() throws Exception {
+    public void testValidateDateRange() throws Exception {
         try {
             CertificateValidator.validateCertificate(invalidCert);
             Assert.fail("exception expected !");

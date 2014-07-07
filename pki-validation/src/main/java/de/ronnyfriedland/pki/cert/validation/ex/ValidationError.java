@@ -5,6 +5,6 @@ package de.ronnyfriedland.pki.cert.validation.ex;
  */
 public enum ValidationError {
 
-    DATE_RANGE, KEYUSAGE, EXTENDED_KEYUSAGE, ALGORITHM, INVALID;
+    DATE_RANGE, KEYUSAGE, EXTENDED_KEYUSAGE, ALGORITHM, INVALID, REVOKED;
 
 }
