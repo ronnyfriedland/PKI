@@ -8,3 +8,5 @@ Defines validators to check the validity of certificates
 - ExtendedKeyUsage checker
 - SignatureAlgorithm checker
 - CRL checker
+
+![Class diagram](classes.png)
