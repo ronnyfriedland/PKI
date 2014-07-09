@@ -7,5 +7,4 @@ Defines validators to check the validity of certificates
 - KeyUsage checker
 - ExtendedKeyUsage checker
 - SignatureAlgorithm checker
-- CRL checker (TODO)
-- ...
+- CRL checker
