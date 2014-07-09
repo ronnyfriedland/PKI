@@ -53,7 +53,7 @@ public class CertificateValidator {
         if (null == cert) {
             throw new IllegalArgumentException("parameter cert not set");
         }
-        if ((null == validators) || (0 < validators.length)) {
+        if ((null == validators) || (0 >= validators.length)) {
             throw new IllegalArgumentException("parameter validators not set");
         }
         for (Validator validator : validators) {
