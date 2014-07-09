@@ -40,4 +40,25 @@ public class CertificateValidator {
             validator.validate(cert);
         }
     }
+
+    /**
+     * Validates the certificate using a custom list of {@link Validator}
+     * 
+     * @param cert the certificate to validate
+     * @param validators custom validators
+     * @throws CertificateValidationException if validation failed (cret invalid)
+     */
+    public static void validateCertificate(final X509Certificate cert, final Validator... validators)
+            throws CertificateValidationException {
+        if (null == cert) {
+            throw new IllegalArgumentException("parameter cert not set");
+        }
+        if ((null == validators) || (0 < validators.length)) {
+            throw new IllegalArgumentException("parameter validators not set");
+        }
+        for (Validator validator : validators) {
+            validator.validate(cert);
+        }
+    }
+
 }
