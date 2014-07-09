@@ -11,6 +11,9 @@ import org.apache.commons.configuration.PropertiesConfiguration;
  */
 public final class Configurator {
 
+    /**
+     * Configuration for validators
+     */
     public final static CompositeConfiguration CONFIG = new CompositeConfiguration();
     static {
         try {
@@ -28,8 +31,14 @@ public final class Configurator {
     public enum ConfiguratorKeys {
         KEYUSAGES("keyusages"), EXTENDEDKEYUSAGES("extendedkeyusages"), ALGORITHM("algorithm");
 
+        /** The configuration key */
         private final String key;
 
+        /**
+         * Creates a new ConfiguratorKeys instance.
+         * 
+         * @param aKey the confiuration key
+         */
         private ConfiguratorKeys(final String aKey) {
             this.key = aKey;
         }

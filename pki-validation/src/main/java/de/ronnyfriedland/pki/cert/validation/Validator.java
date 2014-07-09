@@ -9,6 +9,12 @@ import de.ronnyfriedland.pki.cert.validation.ex.CertificateValidationException;
  */
 public interface Validator {
 
-    public void validate(final X509Certificate cert) throws CertificateValidationException;
+    /**
+     * Validates the given {@link X509Certificate} with the custom validator implementation.
+     * 
+     * @param cert the certificate to validate
+     * @throws CertificateValidationException exception if validation failed
+     */
+    void validate(final X509Certificate cert) throws CertificateValidationException;
 
 }

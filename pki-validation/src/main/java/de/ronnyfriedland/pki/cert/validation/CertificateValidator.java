@@ -23,9 +23,16 @@ public class CertificateValidator {
                 .getStringArray(Configurator.ConfiguratorKeys.EXTENDEDKEYUSAGES.getKey())));
         validators.add(new SignatureAlgorithmValidator(Configurator.CONFIG
                 .getStringArray(Configurator.ConfiguratorKeys.ALGORITHM.getKey())));
+        validators.add(new CrlValidator());
     }
 
-    public static void validateCertificate(X509Certificate cert) throws CertificateValidationException {
+    /**
+     * Validates the certificate using the configured {@link Validator} implementations within {@link #validators}
+     * 
+     * @param cert the certificate to validate
+     * @throws CertificateValidationException if validation failed (cret invalid)
+     */
+    public static void validateCertificate(final X509Certificate cert) throws CertificateValidationException {
         if (null == cert) {
             throw new IllegalArgumentException("parameter cert not set");
         }
