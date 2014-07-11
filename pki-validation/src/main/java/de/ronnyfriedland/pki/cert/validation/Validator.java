@@ -5,6 +5,8 @@ import java.security.cert.X509Certificate;
 import de.ronnyfriedland.pki.cert.validation.ex.CertificateValidationException;
 
 /**
+ * Interface of all validator classes. Can be used to define a custom validator.
+ * 
  * @author ronnyfriedland
  */
 public interface Validator {

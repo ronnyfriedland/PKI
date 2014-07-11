@@ -10,6 +10,11 @@ import org.bouncycastle.asn1.x509.KeyUsage;
 import de.ronnyfriedland.pki.cert.validation.ex.CertificateValidationException;
 import de.ronnyfriedland.pki.cert.validation.ex.ValidationError;
 
+/**
+ * Valdiates the key usage of the certificate.
+ * 
+ * @author ronnyfriedland
+ */
 public class KeyUsageValidator implements Validator {
 
     private final Set<Integer> allowedKeyUsages = new HashSet<Integer>();
@@ -41,11 +46,10 @@ public class KeyUsageValidator implements Validator {
     /**
      * Creates an new instance of {@link KeyUsageValidator}.
      * 
-     * @param allowedKeyUsage
-     *            list of allowed key usages
+     * @param allowedKeyUsage list of allowed key usages
      */
-    public KeyUsageValidator(String... allowedKeyUsages) {
-        if (null != allowedKeyUsages && 0 < allowedKeyUsages.length) {
+    public KeyUsageValidator(final String... allowedKeyUsages) {
+        if ((null != allowedKeyUsages) && (0 < allowedKeyUsages.length)) {
             for (String allowedKeyUsage : allowedKeyUsages) {
                 if (StringUtils.isNotBlank(allowedKeyUsage)) {
                     this.allowedKeyUsages.add(KeyUsageEnum.intValue(allowedKeyUsage));
@@ -59,7 +63,8 @@ public class KeyUsageValidator implements Validator {
      * 
      * @see de.ronnyfriedland.pki.cert.validation.Validator#validate(java.security.cert.X509Certificate)
      */
-    public void validate(X509Certificate cert) throws CertificateValidationException {
+    @Override
+    public void validate(final X509Certificate cert) throws CertificateValidationException {
         boolean[] keyUsages = cert.getKeyUsage();
         if (null != keyUsages) {
             for (int i = 0; i < KeyUsageEnum.values().length; i++) {
